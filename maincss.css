@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*my header contains my title and links*/
+header{
+    background-color: #83858f;
+    padding: 1em 1em 1em 0em;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    font-family: 'Belleza';
+    border-bottom: 2px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin: 0 auto 0 auto;
+}
+#title{
+    height: 5em;
+    background-color: red;
+    padding: 0em 1em 0em 1em;
+    float: left;
+}
+/*pointy is the id for my cool title shape*/
+#pointy{
+    float: left;
+    width: 2em;
+    border-right: 1em solid #83858f;
+    border-top: 2.5em solid red;
+    border-bottom: 2.5em solid red;
+}
+#links{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#links a{
+    font-weight: bold;
+    color: darkblue;
+    text-decoration: none;
+    outline: none;
+    border-bottom: 5px solid darkblue;
+    font-size: 1.5em;
+    margin: 0 .2em 0 .2em;
+}
+/*then the links are hovered over they change color*/
+@keyframes change-color{
+    from{
+        border-color: darkblue;
+        color: darkblue;
+    }
+    33%{
+        border-color: darkred;
+        color: darkred;
+    }
+    66%{
+        border-color: darkgreen;
+        color: darkgreen;
+    }
+    to{
+        border-color: darkblue;
+        color: darkblue;
+    }
+}
+#links a:hover{
+    animation-name: change-color;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+/*an image that contains my subtitle*/
+#image{
+    background-image: url(metal_bc.jpg);
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+#subtitle{
+    position: absolute;
+    margin: 1em;
+    padding: 1em;
+    background-image: url(metal2.jpg);
+    right: 0;
+    bottom: 0;
+    transform: skew(20deg);
+}
+#subtitle h3{
+    transform: skew(-20deg);
+    font-size: 1.5em;
+}
+/*main contains all of my main content*/
+#main{
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+#main div h2{
+    font-size: 4em;
+    text-align: right;
+}
+/*main container contains the main content from the main id*/
+.main-container{
+    display: flex;
+    margin-top: 5em;
+}
+.about-me{
+    margin-left: 2.9em;
+}
+#work{
+    margin-left: 3.75em;
+}
+#main-stuff{
+    border-left: 5px solid black;
+    margin-left: 1em;
+    padding-left: 3em;
+}
+#main-stuff p{
+    font-size: 1.2em;
+}
+/*.grid and .grids hold all the work content*/ 
+.grids{
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    margin-left: 3em;
+    height: 600px;
+}
+.grid{
+    border: 3px solid lightblue;
+    position: relative;
+}
+.grid:first-child{
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2; 
+}
+/*pic is the picture of the links for my work*/
+.pic1{
+    background-image: url(#);
+}
+.pic2{
+    background-image: url(#);
+}
+.pic3{
+    background-image: url(#);
+}
+.pic4{
+    background-image: url(#);
+}
+.pic5{
+    background-image: url(#);
+}
+/*when the work is hilighted it darkens*/
+@-webkit-keyframes fade{
+    from{
+        filter: brightness(100%)
+    }
+    to{
+        filter: brightness(50%)
+    }
+}
+.grid:hover{
+    animation: fade;
+    animation-duration: 1s;
+}
+#grid-name{
+    background-color: #9cbff7;
+    position: absolute;
+    bottom: 5%;
+    left: -1px;
+}
+/*finish with contact info*/
+#contact-me #main-stuff{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#contact-me div a{
+    font-weight: bold;
+    color: darkblue;
+    text-decoration: none;
+    outline: none;
+    border-bottom: 5px solid darkblue;
+    font-size: 1.5em;
+    margin: 0 .5em 0 .5em;
+}
+/*this mainly makes font smaller for small screens*/
+@media screen and (max-width: 768px) {
+    h1{
+        font-size: 1.3em;
+    }
+    h2{
+        font-size: .8em;
+    }
+    #subtitle h3{
+        font-size: 1em;
+    }
+    .main-container{
+        display: inline;
+    }
+    #main div h2{
+        text-align: left;
+        font-size: 1.5em;
+    }
+    .grids{
+        height: 300px;
+    }
+    #links a{
+        font-size: 1em;
+    }
+    #contact-me div a{
+        font-size: 1em;
+    }
+}
